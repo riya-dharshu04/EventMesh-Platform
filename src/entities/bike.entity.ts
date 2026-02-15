@@ -1,5 +1,6 @@
-import { PrimaryGeneratedColumn, Column, Entity, ManyToOne, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { PrimaryGeneratedColumn, Column, Entity, ManyToOne, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
 import { User } from 'src/users/user.entity';
+import { Booking } from './booking.entity';
 
 @Entity('bikes')
 export class Bike {
@@ -26,6 +27,9 @@ export class Bike {
 
     @ManyToOne(() => User, (user) => user.id)
     owner: User;
+
+    @OneToMany(() => Booking, (booking) => booking.bike)
+    bookings: Booking[];
 
     @CreateDateColumn()
     createdAt: Date;
