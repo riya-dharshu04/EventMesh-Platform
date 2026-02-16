@@ -1,11 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { EventsModule } from './events/events.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/user.module';
-import { OwnerModule } from './auth/owner/owner.module';
-
+import { OwnerModule } from './owner/owner.module'
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -27,7 +25,6 @@ import { OwnerModule } from './auth/owner/owner.module';
         synchronize: true,
       }),
     }),
-    EventsModule,
     UsersModule,
     AuthModule,
     OwnerModule,
