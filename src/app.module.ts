@@ -3,7 +3,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/user.module';
-import { OwnerModule } from './owner/owner.module'
+import { OwnerModule } from './owner/owner.module';
+import { FirebaseModule } from './firebase/firebase.module';
+import { UploadModule } from './upload/upload.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -28,6 +30,8 @@ import { OwnerModule } from './owner/owner.module'
     UsersModule,
     AuthModule,
     OwnerModule,
+    FirebaseModule,
+    UploadModule,
   ],
 })
 export class AppModule {}
