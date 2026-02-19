@@ -6,6 +6,7 @@ import { UsersModule } from './users/user.module';
 import { OwnerModule } from './owner/owner.module';
 import { FirebaseModule } from './firebase/firebase.module';
 import { UploadModule } from './upload/upload.module';
+import { BikeModule } from './bike/bike.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -32,6 +33,7 @@ import { UploadModule } from './upload/upload.module';
     OwnerModule,
     FirebaseModule,
     UploadModule,
+    BikeModule
   ],
 })
 export class AppModule {}
