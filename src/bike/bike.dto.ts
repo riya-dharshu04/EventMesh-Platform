@@ -35,7 +35,4 @@ export class RegisterBikeDto{
     @IsNotEmpty()
     costPerDay:number;
 
-    @IsUUID()
-    ownerId: string;
-
 }

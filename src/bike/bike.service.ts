@@ -15,9 +15,12 @@ export class BikesService {
         private readonly userRepository: Repository<User>
     ) { }
 
-    async registerBike(dto: RegisterBikeDto) {
-        const owner = await this.userRepository.findOne({ where: { id: dto.ownerId } });
-        if (!owner) throw new Error('Owner not found');
+    async registerBike(dto: RegisterBikeDto,ownerId: string) {
+        const owner = await this.userRepository.findOne({
+            where: { id: ownerId },
+          });
+        
+          if (!owner) throw new Error('Owner not found');
         const bike = this.bikeRepository.create({
             bikeNumber: dto.bikeNumber,
             bikeModel: dto.bikeModel,
@@ -27,7 +30,7 @@ export class BikesService {
             location: dto.location,
             bikeStatus: dto.bikeStatus,
             costPerDay: dto.costPerDay,
-            owner: owner
+
         });
         await this.bikeRepository.save(bike);
 
